@@ -10,10 +10,24 @@ body {
 
 .logo {
     font-family: 'Shrikhand', cursive;
+    letter-spacing: 1px;
 }
 
-.restaurants {
-    background-color: #f5f5f5;
+//Variables
+
+$couleur: (
+    primaire: #9356dc,
+    secondaire: #ff79da,
+    tertiaire: #99e2d0,
+    fondclair: #f5f5f5,
+    fondsombre: #353535,
+    ombre: rgba(0, 0, 0, 0.08)
+);
+
+//Body
+
+.restau {
+    background-color: map-get($couleur, fondclair);
     padding: 59px 20px 64px 20px;
 
     h2 {
@@ -21,43 +35,68 @@ body {
         max-width: 335px;
     }
 
-    article {
+    .carte {
         box-sizing: border-box;
         max-width: 335px;
         height: 251px;
         margin-top: 18px;
         border-radius: 10px;
         background-color: white;
-        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
-        
-        .image {
+        box-shadow: 0px 3px 10px map-get($couleur, ombre);
+
+        &__image {
             height: 174px;
             border-radius: 10px 10px 0px 0px;
             background-repeat: no-repeat;
             background-position: bottom ;
             background-size: cover;
-            i {
+            
+            &--new {
+                margin-top: 13px;
+                margin-right: -35px;
+                float: right;
+                width: 74px;
+                padding-left: 10px;
+                height: 29px;
+                border-radius: 2px;
+                background-color: map-get($couleur, tertiaire);
+                color: darken(map-get($couleur, tertiaire), 50%);
+                display: flex;
+                text-align: center;
+                align-items: center;
+                
+    
+            }
+            &--like {
                 float: right;
                 font-size: 22px;
                 margin-top: 197px;
-                margin-right: 24px;
-            }
-        }
+                margin-right: 25px;
+                color: grey;
 
-        .titre {
+                input[type="checkbox"], .fas, input[type="checkbox"]:checked ~ .far {
+                    display: none;
+                }
+                input[type="checkbox"]:checked ~ .fas {
+                    display: inline;
+                    color: map-get($couleur, primaire);
+                }
+            }   
+        }
+        &__titre {
             height: 77px;
             display: table-cell;
             vertical-align: middle;
             padding-left: 14px;
-            padding-right: 24px;
             line-height: 140%;
         }  
     }
 }
 
 //Footer
+
 footer {
-    background-color: #353535;
+    background-color: map-get($couleur, fondsombre);
     color:white;
     padding: 26px 20px 38px 20px;
 
@@ -65,6 +104,27 @@ footer {
         list-style: none;
         box-sizing: border-box;
         max-width: 335px;
-        line-height: 160%;
+        line-height: 160%;   
+        
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    
+        h3 {
+            margin-bottom: 16px;
+        }
+    
+        i {
+            width: 20px;
+
+            &.fa-utensils {
+                font-size: 13px;
+            }
+    
+            &.fa-hands-helping {
+                font-size: 10px;
+            }
+        } 
     }
 }

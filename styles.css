@@ -4,57 +4,71 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .logo {
-  font-family: 'Shrikhand', cursive;
+  font-family: "Shrikhand", cursive;
+  letter-spacing: 1px;
 }
 
-.restaurants {
+.restau {
   background-color: #f5f5f5;
   padding: 59px 20px 64px 20px;
 }
-
-.restaurants h2 {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+.restau h2 {
+  box-sizing: border-box;
   max-width: 335px;
 }
-
-.restaurants article {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+.restau .carte {
+  box-sizing: border-box;
   max-width: 335px;
   height: 251px;
   margin-top: 18px;
   border-radius: 10px;
   background-color: white;
-  -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
-          box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
 }
-
-.restaurants article .image {
+.restau .carte__image {
   height: 174px;
   border-radius: 10px 10px 0px 0px;
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
 }
-
-.restaurants article .image i {
+.restau .carte__image--new {
+  margin-top: 13px;
+  margin-right: -35px;
+  float: right;
+  width: 74px;
+  padding-left: 10px;
+  height: 29px;
+  border-radius: 2px;
+  background-color: #99e2d0;
+  color: #1b6150;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.restau .carte__image--like {
   float: right;
   font-size: 22px;
   margin-top: 197px;
-  margin-right: 24px;
+  margin-right: 25px;
+  color: grey;
 }
-
-.restaurants article .titre {
+.restau .carte__image--like input[type=checkbox], .restau .carte__image--like .fas, .restau .carte__image--like input[type=checkbox]:checked ~ .far {
+  display: none;
+}
+.restau .carte__image--like input[type=checkbox]:checked ~ .fas {
+  display: inline;
+  color: #9356dc;
+}
+.restau .carte__titre {
   height: 77px;
   display: table-cell;
   vertical-align: middle;
   padding-left: 14px;
-  padding-right: 24px;
   line-height: 140%;
 }
 
@@ -63,12 +77,25 @@ footer {
   color: white;
   padding: 26px 20px 38px 20px;
 }
-
 footer ul {
   list-style: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   max-width: 335px;
   line-height: 160%;
 }
-/*# sourceMappingURL=styles.css.map */
+footer ul a {
+  text-decoration: none;
+  color: white;
+}
+footer ul h3 {
+  margin-bottom: 16px;
+}
+footer ul i {
+  width: 20px;
+}
+footer ul i.fa-utensils {
+  font-size: 13px;
+}
+footer ul i.fa-hands-helping {
+  font-size: 10px;
+}/*# sourceMappingURL=styles.css.map */
