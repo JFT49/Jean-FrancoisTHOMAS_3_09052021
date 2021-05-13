@@ -12,6 +12,71 @@ body {
   letter-spacing: 1px;
 }
 
+header {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  height: 63px;
+  position: relative;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+}
+header a {
+  position: absolute;
+  font-size: 22px;
+  margin-left: 23px;
+  color: black;
+}
+header h1 {
+  font-size: 30px;
+}
+
+.fonction {
+  padding: 59px 20px 64px 20px;
+}
+.fonction h2 {
+  box-sizing: border-box;
+  max-width: 335px;
+  margin-bottom: 32px;
+}
+.fonction .step {
+  margin-top: 23px;
+  max-width: 335px;
+  height: 98px;
+  box-sizing: border-box;
+  height: 75px;
+  border-radius: 22px;
+  background-color: #f5f5f5;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+  display: flex;
+}
+.fonction .step__bulle {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: #9356dc;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin: auto 0 auto -12px;
+}
+.fonction .step__icone {
+  font-size: 20px;
+  color: grey;
+  position: relative;
+  width: 25px;
+  margin: auto 0 auto 21px;
+  display: flex;
+}
+.fonction .step__titre {
+  margin: auto 0 auto 20px;
+}
+.fonction .step:hover {
+  background-color: #f5edff;
+}
+.fonction .step:hover .step__icone {
+  color: #9356dc;
+}
+
 .restau {
   background-color: #f5f5f5;
   padding: 59px 20px 64px 20px;
@@ -21,13 +86,23 @@ body {
   max-width: 335px;
 }
 .restau .carte {
+  position: relative;
   box-sizing: border-box;
   max-width: 335px;
   height: 251px;
   margin-top: 18px;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+}
+.restau .carte__link {
+  position: absolute;
+  display: block;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 251px;
+  border-radius: 10px;
 }
 .restau .carte__image {
   height: 174px;
@@ -51,17 +126,28 @@ body {
   align-items: center;
 }
 .restau .carte__image--like {
+  position: relative;
   float: right;
-  font-size: 22px;
+  font-size: 24px;
   margin-top: 197px;
   margin-right: 25px;
-  color: grey;
 }
-.restau .carte__image--like input[type=checkbox], .restau .carte__image--like .fas, .restau .carte__image--like input[type=checkbox]:checked ~ .far {
+.restau .carte__image--like input[type=checkbox] {
   display: none;
 }
+.restau .carte__image--like .far {
+  color: grey;
+  transition: color 600ms;
+}
+.restau .carte__image--like input[type=checkbox]:checked ~ .far {
+  color: rgba(0, 0, 0, 0);
+}
+.restau .carte__image--like .fas {
+  margin-right: -29.75px;
+  color: rgba(0, 0, 0, 0);
+  transition: color 1200ms;
+}
 .restau .carte__image--like input[type=checkbox]:checked ~ .fas {
-  display: inline;
   color: #9356dc;
 }
 .restau .carte__titre {

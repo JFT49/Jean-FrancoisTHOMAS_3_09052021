@@ -21,10 +21,86 @@ $couleur: (
     tertiaire: #99e2d0,
     fondclair: #f5f5f5,
     fondsombre: #353535,
-    ombre: rgba(0, 0, 0, 0.08)
+    ombre: rgba(0, 0, 0, 0.12)
 );
 
+//Header
+
+header {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 63px;
+    position: relative;
+    box-shadow: 0px 3px 10px map-get($couleur, ombre);
+    //border-bottom: solid #cfcfcf ;
+
+    a {
+        position: absolute;
+        font-size: 22px;
+        margin-left: 23px;
+        color: black;  
+    }
+
+    h1 {
+        font-size: 30px;
+    }    
+}
+
 //Body
+
+.fonction {
+    padding: 59px 20px 64px 20px;
+
+    h2 {
+        box-sizing: border-box;
+        max-width: 335px;
+        margin-bottom: 32px;
+    }
+
+    .step {
+        margin-top: 23px;
+        max-width: 335px;
+        height: 98px;
+        box-sizing: border-box;
+        height: 75px;
+        border-radius: 22px;
+        background-color: map-get($couleur, fondclair);
+        box-shadow: 0px 3px 10px map-get($couleur, ombre);
+        display: flex;
+
+        &__bulle {
+            width: 24px;
+            height: 24px;
+            border-radius: 12px;
+            background-color: map-get($couleur, primaire);
+            color: white;
+            display: flex;
+            align-items: center;
+            margin: auto 0 auto -12px;
+        }
+        &__icone {
+            font-size: 20px;
+            color: grey;
+            position: relative;
+            width: 25px;
+            margin: auto 0 auto 21px;
+            display: flex;
+        }
+        &__titre {
+            margin: auto 0 auto 20px;
+        }
+        &:hover {
+            background-color: #f5edff;
+            .step__icone {
+                color: map-get($couleur, primaire);
+            }
+        }
+    }
+}
+
+
+
 
 .restau {
     background-color: map-get($couleur, fondclair);
@@ -36,6 +112,7 @@ $couleur: (
     }
 
     .carte {
+        position: relative;
         box-sizing: border-box;
         max-width: 335px;
         height: 251px;
@@ -44,13 +121,22 @@ $couleur: (
         background-color: white;
         box-shadow: 0px 3px 10px map-get($couleur, ombre);
 
+        &__link {
+            position: absolute;
+            display: block;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.0);
+            width: 100%;
+            height: 251px;
+            border-radius: 10px;
+        }
         &__image {
             height: 174px;
             border-radius: 10px 10px 0px 0px;
             background-repeat: no-repeat;
             background-position: bottom ;
             background-size: cover;
-            
+
             &--new {
                 margin-top: 13px;
                 margin-right: -35px;
@@ -60,28 +146,38 @@ $couleur: (
                 height: 29px;
                 border-radius: 2px;
                 background-color: map-get($couleur, tertiaire);
-                color: darken(map-get($couleur, tertiaire), 50%);
+                color: darken($color: map-get($couleur, tertiaire), $amount: 50%);
                 display: flex;
                 text-align: center;
                 align-items: center;
-                
-    
             }
             &--like {
+                position: relative;
                 float: right;
-                font-size: 22px;
+                font-size: 24px;
                 margin-top: 197px;
                 margin-right: 25px;
-                color: grey;
-
-                input[type="checkbox"], .fas, input[type="checkbox"]:checked ~ .far {
+                
+                
+                input[type="checkbox"] {
                     display: none;
                 }
+                .far {
+                    color: grey;
+                    transition: color 600ms;
+                }
+                input[type="checkbox"]:checked ~ .far {
+                    color: rgba(0, 0, 0, 0.0);
+                }
+                .fas {
+                    margin-right: -29.75px;
+                    color: rgba(0, 0, 0, 0.0);
+                    transition: color 1200ms;
+                }
                 input[type="checkbox"]:checked ~ .fas {
-                    display: inline;
                     color: map-get($couleur, primaire);
                 }
-            }   
+            }
         }
         &__titre {
             height: 77px;
