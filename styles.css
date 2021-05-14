@@ -18,7 +18,7 @@ header {
   align-items: center;
   height: 63px;
   position: relative;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.18);
 }
 header a {
   position: absolute;
@@ -28,6 +28,149 @@ header a {
 }
 header h1 {
   font-size: 30px;
+}
+
+@-webkit-keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.progress {
+  position: relative;
+  display: inline-block;
+  width: 5em;
+  height: 5em;
+  margin: 120px;
+  font-size: 12px;
+  text-indent: 999em;
+  overflow: hidden;
+  -webkit-animation: spin 500ms infinite steps(9);
+          animation: spin 500ms infinite steps(9);
+}
+
+.small.progress {
+  font-size: 6px;
+}
+
+.large.progress {
+  font-size: 24px;
+}
+
+.progress:before, .progress:after, .progress > div:before, .progress > div:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2.25em;
+  /* (container width - part width)/2  */
+  width: 0.5em;
+  height: 1.5em;
+  border-radius: 0.2em;
+  background: #fca8e4;
+  box-shadow: 0 3.5em #fca8e4;
+  /* container height - part height */
+  transform-origin: 50% 2.5em;
+  /* container height / 2 */
+}
+
+.progress:before {
+  background: #9356dc;
+}
+
+.progress:after {
+  transform: rotate(-45deg);
+  background: #a45bfd;
+}
+
+.progress > div:before {
+  transform: rotate(-90deg);
+  background: #b275fd;
+}
+
+.progress > div:after {
+  transform: rotate(-135deg);
+  background: #c191fd;
+}
+
+.localisation {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: #e9e7e7;
+}
+.localisation i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+.localisation input[type=text]::-moz-placeholder {
+  font-size: 18px;
+  border: none;
+  color: black;
+  background-color: #e9e7e7;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  width: 120px;
+  text-overflow: ellipsis;
+}
+.localisation input[type=text]:-ms-input-placeholder {
+  font-size: 18px;
+  border: none;
+  color: black;
+  background-color: #e9e7e7;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  width: 120px;
+  text-overflow: ellipsis;
+}
+.localisation input[type=text], .localisation input[type=text]::placeholder {
+  font-size: 18px;
+  border: none;
+  color: black;
+  background-color: #e9e7e7;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  width: 120px;
+  text-overflow: ellipsis;
+}
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 43px 20px 57px 20px;
+  background-color: #f5f5f5;
+}
+.presentation > h2 {
+  padding: 0 50px 0 50px;
+}
+.presentation > a {
+  margin-top: 21px;
+}
+
+.button {
+  box-sizing: border-box;
+  height: 50px;
+  min-width: 186px;
+  border-radius: 25px;
+  padding: 0 22px 0 22px;
+  margin-top: 31px;
+  background: linear-gradient(#ff79da, #9356dc);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.18);
+  color: white;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.button:hover {
+  background: linear-gradient(#fb9ae0, #b67efa);
+  box-shadow: 0px 3px 13px #adadad;
 }
 
 .fonction {
@@ -46,7 +189,7 @@ header h1 {
   height: 75px;
   border-radius: 22px;
   background-color: #f5f5f5;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.18);
   display: flex;
 }
 .fonction .step__bulle {
@@ -71,7 +214,7 @@ header h1 {
   margin: auto 0 auto 20px;
 }
 .fonction .step:hover {
-  background-color: #f5edff;
+  background: #f4edfd;
 }
 .fonction .step:hover .step__icone {
   color: #9356dc;
@@ -93,7 +236,7 @@ header h1 {
   margin-top: 18px;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.18);
 }
 .restau .carte__link {
   position: absolute;
@@ -160,8 +303,10 @@ header h1 {
 
 footer {
   background-color: #353535;
-  color: white;
+  color: #f5f5f5;
   padding: 26px 20px 38px 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 footer ul {
   list-style: none;
@@ -171,10 +316,11 @@ footer ul {
 }
 footer ul a {
   text-decoration: none;
-  color: white;
+  color: #f5f5f5;
 }
-footer ul h3 {
+footer ul h1 {
   margin-bottom: 16px;
+  font-size: 21px;
 }
 footer ul i {
   width: 20px;

@@ -17,11 +17,13 @@ body {
 
 $couleur: (
     primaire: #9356dc,
+    primaireclaire: #b67efa,
     secondaire: #ff79da,
+    secondaireclaire: #fb9ae0,
     tertiaire: #99e2d0,
     fondclair: #f5f5f5,
     fondsombre: #353535,
-    ombre: rgba(0, 0, 0, 0.12)
+    ombre: rgba(0, 0, 0, 0.18)
 );
 
 //Header
@@ -32,8 +34,7 @@ header {
     align-items: center;
     height: 63px;
     position: relative;
-    box-shadow: 0px 3px 10px map-get($couleur, ombre);
-    //border-bottom: solid #cfcfcf ;
+    box-shadow: 0px 3px 3px map-get($couleur, ombre);
 
     a {
         position: absolute;
@@ -48,6 +49,122 @@ header {
 }
 
 //Body
+
+
+/////////Spinner test//////:
+    @keyframes spin { 	
+        to { 
+            transform: rotate(1turn); 
+        } 
+    }  
+    .progress { 	
+        position: relative; 	
+        display: inline-block; 	
+        width: 5em; 	
+        height: 5em; 	
+        margin: 120px; 	
+        font-size: 12px; 	
+        text-indent: 999em; 	
+        overflow: hidden; 	
+        animation: spin 500ms infinite steps(9); 
+    }  
+    .small.progress { 	
+        font-size: 6px; 
+    }  
+    .large.progress { 	
+        font-size: 24px; 
+    }  
+    .progress:before, .progress:after, .progress > div:before, .progress > div:after { 	
+        content: ''; 	
+        position: absolute; 	
+        top: 0; 	
+        left: 2.25em; /* (container width - part width)/2  */ 	
+        width: .5em; 	
+        height: 1.5em; 	
+        border-radius: .2em; 	
+        background: #fca8e4; 	
+        box-shadow: 0 3.5em #fca8e4; /* container height - part height */ 	
+        transform-origin: 50% 2.5em; /* container height / 2 */ 
+    }  
+    .progress:before { 	
+        background: #9356dc; 
+    }  
+    .progress:after { 	
+        transform: rotate(-45deg); 	
+        background: #a45bfd; 
+    }  
+    .progress > div:before { 	
+        transform: rotate(-90deg); 	
+        background: #b275fd; 
+    }  
+    .progress > div:after { 	
+        transform: rotate(-135deg); 	
+        background: #c191fd; 
+    }
+
+///////////////////////////////////////:
+
+.localisation {
+    display: flex;
+    align-items: center; 
+    height: 50px;
+    background-color: rgb(233, 231, 231);
+
+    i {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    input[type="text"], input[type="text"]::placeholder {
+        font-size: 18px;
+        border: none;
+        color:black;
+        background-color: rgb(233, 231, 231);
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        width: 120px;
+        text-overflow: ellipsis;
+    }
+}
+
+
+.presentation {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 43px 20px 57px 20px;
+    background-color: map-get($couleur, fondclair);
+
+    > h2 {
+        padding: 0 50px 0 50px;
+    }
+
+    > a {
+        margin-top: 21px;
+    }
+}
+
+.button {
+    box-sizing: border-box;
+    height: 50px;
+    min-width: 186px;
+    border-radius: 25px;
+    padding: 0 22px 0 22px;
+    margin-top: 31px;
+    background: linear-gradient(map-get($couleur, secondaire),map-get($couleur, primaire)) ;
+    box-shadow: 0px 3px 10px map-get($couleur, ombre);
+    color: white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    &:hover {
+        background: linear-gradient(map-get($couleur, secondaireclaire),map-get($couleur, primaireclaire));
+        box-shadow: 0px 3px 13px rgb(173, 173, 173);
+    }
+}
+
 
 .fonction {
     padding: 59px 20px 64px 20px;
@@ -91,7 +208,7 @@ header {
             margin: auto 0 auto 20px;
         }
         &:hover {
-            background-color: #f5edff;
+            background: #f4edfd ;
             .step__icone {
                 color: map-get($couleur, primaire);
             }
@@ -193,8 +310,10 @@ header {
 
 footer {
     background-color: map-get($couleur, fondsombre);
-    color:white;
+    color: map-get($couleur, fondclair);
     padding: 26px 20px 38px 20px;
+    font-weight: bold;
+    letter-spacing: 1px; 
 
     ul {
         list-style: none;
@@ -204,11 +323,12 @@ footer {
         
         a {
             text-decoration: none;
-            color: white;
+            color: map-get($couleur, fondclair);
         }
     
-        h3 {
+        h1 {
             margin-bottom: 16px;
+            font-size: 21px;
         }
     
         i {
