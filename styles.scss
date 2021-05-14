@@ -68,10 +68,8 @@ header {
         overflow: hidden; 	
         animation: spin 500ms infinite steps(9); 
     }  
-    .small.progress { 	
-        font-size: 6px; 
-    }  
-    .large.progress { 	
+
+    .taille.progress { 	
         font-size: 24px; 
     }  
     .progress:before, .progress:after, .progress > div:before, .progress > div:after { 	
