@@ -27,7 +27,7 @@ header a {
   color: black;
 }
 header h1 {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 @-webkit-keyframes spin {
@@ -50,11 +50,11 @@ header h1 {
   font-size: 12px;
   text-indent: 999em;
   overflow: hidden;
-  -webkit-animation: spin 500ms infinite steps(9);
-          animation: spin 500ms infinite steps(9);
+  -webkit-animation: spin 500ms infinite steps(8);
+          animation: spin 500ms infinite steps(8);
 }
 
-.taille.progress {
+.size.progress {
   font-size: 24px;
 }
 
@@ -93,6 +93,118 @@ header h1 {
   background: #c191fd;
 }
 
+.entete__image {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  height: 290px;
+}
+@media only screen and (min-width: 800px) {
+  .entete__image {
+    height: 430px;
+  }
+}
+.entete__image > div {
+  margin-bottom: -1px;
+  position: absolute;
+  bottom: 0;
+  background-color: #f5f5f5;
+  height: 37px;
+  width: 100%;
+  border-radius: 37px 37px 0 0;
+}
+.entete__titre {
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  padding: 1px 20px;
+}
+.entete__titre > h1 {
+  line-height: 25px;
+  font-size: 25px;
+  max-width: 320px;
+}
+.entete__titre--like {
+  position: relative;
+  float: right;
+  font-size: 24px;
+}
+.entete__titre--like .far {
+  color: grey;
+  transition: color 600ms;
+}
+.entete__titre--like .fas {
+  margin-right: -29.75px;
+  color: rgba(0, 0, 0, 0);
+  transition: color 1200ms;
+}
+.entete__titre--like input[type=checkbox] {
+  display: none;
+}
+.entete__titre--like input[type=checkbox]:checked ~ .far {
+  color: rgba(0, 0, 0, 0);
+}
+.entete__titre--like input[type=checkbox]:checked ~ .fas {
+  color: #9356dc;
+}
+
+.menu {
+  background-color: #f5f5f5;
+  padding-bottom: 10px;
+}
+@media only screen and (min-width: 800px) {
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
+.menu .bloc {
+  padding: 46px 10px 0 10px;
+}
+.menu .bloc h5 {
+  padding-left: 0px;
+  box-sizing: border-box;
+  max-width: 349px;
+  font-size: 16px;
+}
+@media only screen and (min-width: 800px) {
+  .menu .bloc h5 {
+    width: 349px;
+  }
+}
+.menu .bloc__carte {
+  box-sizing: border-box;
+  max-width: 349px;
+  height: 68px;
+  background-color: white;
+  border-radius: 12px;
+  margin-top: 14px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.18);
+  padding-left: 11px;
+  padding-top: 12px;
+}
+.menu .bloc__carte h6 {
+  font-size: 16px;
+  line-height: 24px;
+}
+.menu .bloc__carte a {
+  font-size: 14px;
+}
+.menu .bloc__carte a:last-child {
+  float: right;
+  margin-right: 23px;
+  font-weight: bold;
+}
+
+.commander {
+  background-color: #f5f5f5;
+  display: flex;
+  padding: 41px 10px 72px 10px;
+  width: 100%;
+}
+
 .localisation {
   display: flex;
   align-items: center;
@@ -100,11 +212,11 @@ header h1 {
   background-color: #e9e7e7;
 }
 .localisation i {
-  font-size: 18px;
+  font-size: 17px;
   margin-right: 10px;
 }
 .localisation input[type=text]::-moz-placeholder {
-  font-size: 18px;
+  font-size: 17px;
   border: none;
   color: black;
   background-color: #e9e7e7;
@@ -114,7 +226,7 @@ header h1 {
   text-overflow: ellipsis;
 }
 .localisation input[type=text]:-ms-input-placeholder {
-  font-size: 18px;
+  font-size: 17px;
   border: none;
   color: black;
   background-color: #e9e7e7;
@@ -124,7 +236,7 @@ header h1 {
   text-overflow: ellipsis;
 }
 .localisation input[type=text], .localisation input[type=text]::placeholder {
-  font-size: 18px;
+  font-size: 17px;
   border: none;
   color: black;
   background-color: #e9e7e7;
@@ -146,6 +258,7 @@ header h1 {
 }
 .presentation > a {
   margin-top: 21px;
+  margin-bottom: 31px;
 }
 
 .button {
@@ -154,7 +267,6 @@ header h1 {
   min-width: 186px;
   border-radius: 25px;
   padding: 0 22px 0 22px;
-  margin-top: 31px;
   background: linear-gradient(#ff79da, #9356dc);
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.18);
   color: white;
@@ -220,11 +332,26 @@ header h1 {
   background-color: #f5f5f5;
   padding: 59px 20px 64px 20px;
 }
-.restau h2 {
-  box-sizing: border-box;
-  max-width: 335px;
+@media only screen and (min-width: 800px) {
+  .restau .flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
-.restau .carte {
+@media only screen and (min-width: 800px) {
+  .restau .flex h2 {
+    width: 100%;
+    margin-left: 70px;
+    margin-bottom: 15px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .restau .flex h2 {
+    max-width: 335px;
+  }
+}
+.restau .flex .carte {
   position: relative;
   box-sizing: border-box;
   max-width: 335px;
@@ -234,7 +361,13 @@ header h1 {
   background-color: white;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.18);
 }
-.restau .carte__link {
+@media only screen and (min-width: 800px) {
+  .restau .flex .carte {
+    width: 335px;
+    margin: 10px;
+  }
+}
+.restau .flex .carte__link {
   position: absolute;
   display: block;
   margin: 0;
@@ -243,14 +376,14 @@ header h1 {
   height: 251px;
   border-radius: 10px;
 }
-.restau .carte__image {
+.restau .flex .carte__image {
   height: 174px;
   border-radius: 10px 10px 0px 0px;
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
 }
-.restau .carte__image--new {
+.restau .flex .carte__image--new {
   margin-top: 13px;
   margin-right: -35px;
   float: right;
@@ -264,32 +397,32 @@ header h1 {
   text-align: center;
   align-items: center;
 }
-.restau .carte__image--like {
+.restau .flex .carte__image--like {
+  margin-top: 197px;
+  margin-right: 25px;
   position: relative;
   float: right;
   font-size: 24px;
-  margin-top: 197px;
-  margin-right: 25px;
 }
-.restau .carte__image--like input[type=checkbox] {
-  display: none;
-}
-.restau .carte__image--like .far {
+.restau .flex .carte__image--like .far {
   color: grey;
   transition: color 600ms;
 }
-.restau .carte__image--like input[type=checkbox]:checked ~ .far {
-  color: rgba(0, 0, 0, 0);
-}
-.restau .carte__image--like .fas {
+.restau .flex .carte__image--like .fas {
   margin-right: -29.75px;
   color: rgba(0, 0, 0, 0);
   transition: color 1200ms;
 }
-.restau .carte__image--like input[type=checkbox]:checked ~ .fas {
+.restau .flex .carte__image--like input[type=checkbox] {
+  display: none;
+}
+.restau .flex .carte__image--like input[type=checkbox]:checked ~ .far {
+  color: rgba(0, 0, 0, 0);
+}
+.restau .flex .carte__image--like input[type=checkbox]:checked ~ .fas {
   color: #9356dc;
 }
-.restau .carte__titre {
+.restau .flex .carte__titre {
   height: 77px;
   display: table-cell;
   vertical-align: middle;
@@ -309,6 +442,11 @@ footer ul {
   box-sizing: border-box;
   max-width: 335px;
   line-height: 160%;
+}
+@media only screen and (min-width: 800px) {
+  footer ul {
+    margin-left: 30px;
+  }
 }
 footer ul a {
   text-decoration: none;
