@@ -4,9 +4,7 @@ $screen: 800px;
 
 $couleur: (
     primaire: #9356dc,
-    primaireclaire: #b67efa,
     secondaire: #ff79da,
-    secondaireclaire: #fb9ae0,
     tertiaire: #99e2d0,
     fondclair: #f5f5f5,
     fondsombre: #353535,
@@ -31,21 +29,21 @@ body {
 //Mixin
 
 @mixin like {
-    position: relative;
-    float: right;
-    font-size: 24px;            
+    font-size: 24px;           
     .far {
         color: grey;
-        transition: color 600ms;
+        opacity: 1;
+        transition: opacity 400ms;
     }
     .fas {
+        color: map-get($couleur, primaire);
         margin-right: -29.75px;
-        color: rgba(0, 0, 0, 0.0);
-        transition: color 1200ms;
+        opacity: 0;
+        transition: opacity 1200ms;
     }
     input[type="checkbox"] { display: none; }
-    input[type="checkbox"]:checked ~ .far { color: rgba(0, 0, 0, 0.0); }
-    input[type="checkbox"]:checked ~ .fas { color: map-get($couleur, primaire); }
+    input[type="checkbox"]:checked ~ .far { opacity: 0; }
+    input[type="checkbox"]:checked ~ .fas { opacity: 1; }
 }
 
 //Header
@@ -57,14 +55,12 @@ header {
     height: 63px;
     position: relative;
     box-shadow: 0px 3px 3px map-get($couleur, ombre);
-
     a {
         position: absolute;
         font-size: 22px;
         margin-left: 23px;
         color: black;  
     }
-
     h1 {
         font-size: 25px;
     }    
@@ -72,7 +68,34 @@ header {
 
 //Body
 
-/////////Spinner test//////:
+/////////Spinner//////
+    @keyframes onload { 
+        from { 
+            opacity: 1;
+            height: 100%;
+            width: 100%; 
+            position: fixed;
+        }
+        to { 
+            opacity: 1;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+        } 
+    } 
+    .onload {
+        animation: onload 1s;
+        background-color: white;
+        position: absolute;
+        top: 0;
+        height: 0;
+        width: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+    }
+
     @keyframes spin { 	
         to { 
             transform: rotate(1turn); 
@@ -87,9 +110,8 @@ header {
         font-size: 12px; 	
         text-indent: 999em; 	
         overflow: hidden; 	
-        animation: spin 500ms infinite steps(8); 
+        animation: spin 250ms infinite steps(9); 
     }  
-
     .size.progress { 	
         font-size: 24px; 
     }  
@@ -97,13 +119,13 @@ header {
         content: ''; 	
         position: absolute; 	
         top: 0; 	
-        left: 2.25em; /* (container width - part width)/2  */ 	
+        left: 2.25em; // (container width - part width)/2  
         width: .5em; 	
         height: 1.5em; 	
         border-radius: .2em; 	
         background: #fca8e4; 	
-        box-shadow: 0 3.5em #fca8e4; /* container height - part height */ 	
-        transform-origin: 50% 2.5em; /* container height / 2 */ 
+        box-shadow: 0 3.5em #fca8e4; // container height - part height 	
+        transform-origin: 50% 2.5em; // container height / 2 
     }  
     .progress:before { 	
         background: #9356dc; 
@@ -132,7 +154,6 @@ header {
         @media only screen and (min-width: $screen) {
             height: 430px; 
         }
-
         > div {
             margin-bottom: -1px;
             position: absolute;
@@ -146,17 +167,30 @@ header {
     &__titre {
         box-sizing: border-box;
         background-color: map-get($couleur, fondclair);
-        padding: 1px 20px;
         > h1 {
             line-height: 25px;
             font-size: 25px;
-            max-width: 320px
+            max-width: 349px;
+            padding-left: 7px;
+            box-sizing: border-box;
         }
         &--like {
+            float: right;
+            margin-right: 26px;
             @include like;
         }
     }
 }
+
+@keyframes anime { 
+    from { 
+        opacity: 0;
+        margin-top: 25px;
+    }
+    to { 
+        opacity: 1;
+    } 
+} 
 
 .menu {
     background-color: map-get($couleur, fondclair);
@@ -167,12 +201,10 @@ header {
         justify-content: center;
         width: 100%;
     }
-
     .bloc {
         padding: 46px 10px 0 10px;
-
         h5 {
-            padding-left: 0px;
+            padding-left: 7px;
             box-sizing: border-box;
             max-width: 349px;
             font-size: 16px;
@@ -180,7 +212,23 @@ header {
                 width: 349px; 
             } 
         }
+        &__barre {
+            box-sizing: border-box;
+            max-width: 349px;
+            margin-top: 6px;
+            > p {
+                max-width: 40px;
+                height: 3px;  
+                margin-left: 7px; 
+                background-color: map-get($couleur, tertiaire);
+            }
+        }
         &__carte {
+            &:nth-child(3) { animation-delay: 0.2s; }
+            &:nth-child(4) { animation-delay: 0.4s; }
+            &:nth-child(5) { animation-delay: 0.6s; }
+            &:nth-child(6) { animation-delay: 0.8s; }
+            animation:  1s  ease-in-out both anime;
             box-sizing: border-box;
             max-width: 349px;
             height: 68px;
@@ -211,7 +259,6 @@ header {
     background-color: map-get($couleur, fondclair);
     display: flex;
     padding: 41px 10px 72px 10px;
-    width: 100%;
 }
 
 .localisation {
@@ -224,7 +271,6 @@ header {
         font-size: 17px;
         margin-right: 10px;
     }
-
     input[type="text"], input[type="text"]::placeholder {
         font-size: 17px;
         border: none;
@@ -247,14 +293,24 @@ header {
     > h2 {
         padding: 0 50px 0 50px;
     }
-
     > a {
         margin-top: 21px;
         margin-bottom: 31px;
     }
 }
 
+
+.button1 {
+    background: linear-gradient(map-get($couleur, secondaire),map-get($couleur, primaire)) ;
+    opacity: 1;
+    &:hover {
+        opacity: 1;
+    }
+}
 .button {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
     box-sizing: border-box;
     height: 50px;
     min-width: 186px;
@@ -268,10 +324,12 @@ header {
     align-items: center;
     font-weight: bold;
     letter-spacing: 1px;
+    opacity: 1;
+    transition: 500ms;
     &:hover {
-        background: linear-gradient(map-get($couleur, secondaireclaire),map-get($couleur, primaireclaire));
-        box-shadow: 0px 3px 13px rgb(173, 173, 173);
-    }
+        box-shadow: 0px 3px 13px rgb(122, 122, 122);
+        opacity: 0.7;
+    } 
 }
 
 .fonction {
@@ -386,6 +444,7 @@ header {
                     align-items: center;
                 }
                 &--like {
+                    float: right;
                     margin-top: 197px;
                     margin-right: 25px;
                     @include like;

@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         <link href="styles.css" rel="stylesheet">
+
         <script src="https://kit.fontawesome.com/5a6ef9e285.js" crossorigin="anonymous"></script>
     
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -22,8 +23,88 @@
         <h1 class="logo">ohmyfood</h1>
     </header>
 
-    <div class="size progress"><div>Loading…</div></div>
+    <section class="entete">
+        <div class="entete__image" style="background-image: url(images/jay-wennington-N_Y88TWmGwA-unsplash.jpg)">
+            <div></div>
+        </div>
+        <div class="entete__titre">
+            <h1 class="logo">La palette du goût
+                <label class="entete__titre--like">
+                    <input type="checkbox" />
+                    <i class="fas fa-heart"></i>
+                    <i class="far fa-heart"></i>
+                </label>
+            </h1>
+        </div>
+    </section>
 
+    <section class="menu">
+        <div class="bloc">
+            <h5>ENTRÉES</h5>
+            <div class="bloc__barre"><p></p></div>
+            
+            <div class="bloc__carte">
+                <h6>Fricassée d'escargot</h6>
+                <a>Au piment d'espelette</a>
+                <a>25€</a>
+            </div>
+            <div class="bloc__carte">
+                <h6>Foie gras de canard mi-cuit</h6>
+                <a>Et ses copeaux de truffe noire</a>
+                <a>35€</a>
+            </div>
+            <div class="bloc__carte">
+                <h6>Oeuf au plat</h6>
+                <a>Assaisonné à la truffe sur lit d'épinards</a>
+                <a>20€</a>
+            </div>
+        </div>
+        <div class="bloc">
+            <h5>PLATS</h5>
+            <div class="bloc__barre"><p></p></div>
+
+            <div class="bloc__carte">
+                <h6>Filet de boeuf aux herbes</h6>
+                <a>Accompagné de sa ribambelle de légumes</a>
+                <a>40€</a>
+            </div>
+            <div class="bloc__carte">
+                <h6>Parmentier de queue de boeuf</h6>
+                <a>À la truffe noire sur sa purée de panais</a>
+                <a>35€</a>
+            </div>
+            <div class="bloc__carte">
+                <h6>Filet de Turbot</h6>
+                <a>Aux agrumes</a>
+                <a>44€</a>
+            </div>
+        </div>
+        <div class="bloc">
+            <h5>DESSERTS</h5>
+            <div class="bloc__barre"><p></p></div>
+
+            <div class="bloc__carte">
+                <h6>Paris-Brest</h6>
+                <a>Revisité</a>
+                <a>18€</a>
+            </div>
+            <div class="bloc__carte">
+                <h6>Macaron au chocolat d'exception</h6>
+                <a>Et glace à la vanille de Madagascar</a>
+                <a>22€</a>
+            </div>
+            <div class="bloc__carte">
+                <h6>Mousse au chocolat</h6>
+                <a>Au piment d'espelette et à la truffe noire</a>
+                <a>23€</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="commander">
+        <a class="button" href="#Commander">Commander</a>
+    </section>
+    
     <footer>
         <ul>
             <li><h1 class="logo">ohmyfood</h1></li>
