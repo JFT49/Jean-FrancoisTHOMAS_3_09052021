@@ -60,9 +60,9 @@ header h1 {
   }
 }
 .onload {
-  -webkit-animation: onload 1s;
-          animation: onload 1s;
-  background-color: white;
+  -webkit-animation: onload 3s;
+          animation: onload 3s;
+  background-color: #f5f5f5;
   position: absolute;
   top: 0;
   height: 0;
@@ -225,6 +225,22 @@ header h1 {
 .menu .bloc {
   padding: 46px 10px 0 10px;
 }
+.menu .bloc :nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.menu .bloc :nth-child(4) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.menu .bloc :nth-child(5) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.menu .bloc :nth-child(6) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
 .menu .bloc h5 {
   padding-left: 7px;
   box-sizing: border-box;
@@ -257,36 +273,66 @@ header h1 {
   border-radius: 12px;
   margin-top: 14px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
   padding-left: 11px;
-  padding-top: 12px;
 }
-.menu .bloc__carte:nth-child(3) {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
+.menu .bloc__carte:hover .bloc__carte--check {
+  margin-right: 0px;
+  margin-left: 12px;
 }
-.menu .bloc__carte:nth-child(4) {
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
-}
-.menu .bloc__carte:nth-child(5) {
-  -webkit-animation-delay: 0.6s;
-          animation-delay: 0.6s;
-}
-.menu .bloc__carte:nth-child(6) {
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
+.menu .bloc__carte:hover .bloc__carte--check div {
+  transform: rotate(360deg);
 }
 .menu .bloc__carte h6 {
-  font-size: 16px;
-  line-height: 24px;
+  margin-top: 13px;
+  display: block;
+  max-width: 340;
+  font-size: 17px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
-.menu .bloc__carte a {
-  font-size: 14px;
+.menu .bloc__carte div:last-child {
+  margin-top: 5px;
 }
-.menu .bloc__carte a:last-child {
+.menu .bloc__carte div:last-child p {
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.menu .bloc__carte div:last-child a {
   float: right;
-  margin-right: 23px;
   font-weight: bold;
+  font-size: 15px;
+  margin-left: 12px;
+}
+.menu .bloc__carte--check {
+  float: right;
+  box-sizing: border-box;
+  width: 59px;
+  height: 68px;
+  background-color: #99e2d0;
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 500ms;
+  margin-right: -59px;
+  margin-left: 24px;
+}
+.menu .bloc__carte--check div {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  transition: 500ms;
+}
+.menu .bloc__carte--check div i {
+  color: #99e2d0;
+  font-size: 12px;
 }
 
 .commander {
@@ -385,17 +431,26 @@ header h1 {
 }
 
 .fonction {
-  padding: 59px 20px 64px 20px;
+  padding: 59px 20px 68px 20px;
 }
 .fonction h2 {
   box-sizing: border-box;
   max-width: 335px;
-  margin-bottom: 32px;
+  margin-bottom: 33px;
 }
-.fonction .step {
-  margin-top: 23px;
+@media only screen and (min-width: 800px) {
+  .fonction h2 {
+    display: flex;
+    justify-content: center;
+  }
+}
+.fonction .align {
+  box-sizing: border-box;
   max-width: 335px;
-  height: 98px;
+  margin-top: 23px;
+  padding-left: 12px;
+}
+.fonction .align .step {
   box-sizing: border-box;
   height: 75px;
   border-radius: 22px;
@@ -403,7 +458,7 @@ header h1 {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.18);
   display: flex;
 }
-.fonction .step__bulle {
+.fonction .align .step__bulle {
   width: 24px;
   height: 24px;
   border-radius: 12px;
@@ -413,7 +468,7 @@ header h1 {
   align-items: center;
   margin: auto 0 auto -12px;
 }
-.fonction .step__icone {
+.fonction .align .step__icone {
   font-size: 20px;
   color: grey;
   position: relative;
@@ -421,13 +476,13 @@ header h1 {
   margin: auto 0 auto 21px;
   display: flex;
 }
-.fonction .step__titre {
+.fonction .align .step__titre {
   margin: auto 0 auto 20px;
 }
-.fonction .step:hover {
+.fonction .align .step:hover {
   background: #f4edfd;
 }
-.fonction .step:hover .step__icone {
+.fonction .align .step:hover .step__icone {
   color: #9356dc;
 }
 
@@ -445,8 +500,9 @@ header h1 {
 @media only screen and (min-width: 800px) {
   .restau .flex h2 {
     width: 100%;
-    margin-left: 70px;
     margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
   }
 }
 @media only screen and (max-width: 800px) {

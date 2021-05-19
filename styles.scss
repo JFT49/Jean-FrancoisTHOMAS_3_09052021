@@ -68,7 +68,7 @@ header {
 
 //Body
 
-/////////Spinner//////
+//Spinner//////
     @keyframes onload { 
         from { 
             opacity: 1;
@@ -84,8 +84,8 @@ header {
         } 
     } 
     .onload {
-        animation: onload 1s;
-        background-color: white;
+        animation: onload 3s;
+        background-color: map-get($couleur, fondclair);
         position: absolute;
         top: 0;
         height: 0;
@@ -202,6 +202,10 @@ header {
         width: 100%;
     }
     .bloc {
+        :nth-child(3) { animation-delay: 0.2s; }
+        :nth-child(4) { animation-delay: 0.4s; }
+        :nth-child(5) { animation-delay: 0.6s; }
+        :nth-child(6) { animation-delay: 0.8s; }
         padding: 46px 10px 0 10px;
         h5 {
             padding-left: 7px;
@@ -224,10 +228,6 @@ header {
             }
         }
         &__carte {
-            &:nth-child(3) { animation-delay: 0.2s; }
-            &:nth-child(4) { animation-delay: 0.4s; }
-            &:nth-child(5) { animation-delay: 0.6s; }
-            &:nth-child(6) { animation-delay: 0.8s; }
             animation:  1s  ease-in-out both anime;
             box-sizing: border-box;
             max-width: 349px;
@@ -236,20 +236,71 @@ header {
             border-radius: 12px;
             margin-top: 14px;
             box-shadow: 0px 3px 10px map-get($couleur, ombre); 
+            overflow: hidden;  //pour cacher le &--check à l'exterieur de la div
             padding-left: 11px;
-            padding-top: 12px;
+            &:hover {
+                .bloc__carte--check {
+                    margin-right: 0px;
+                    margin-left: 12px;
+                    div {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+
 
             h6 {
-                font-size: 16px;
-                line-height: 24px;
+                margin-top: 13px;
+                display: block;
+                max-width: 340;
+                font-size: 17px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
             }
-            a {
-                font-size: 14px;
+            div:last-child {
+                margin-top: 5px;
+                p {
+                    font-size: 15px;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                a {
+                    float: right;
+                    font-weight: bold;
+                    font-size: 15px;
+                    margin-left: 12px;
+                }
             }
-            a:last-child {
+            &--check {
                 float: right;
-                margin-right: 23px;
-                font-weight: bold;
+                box-sizing: border-box;
+                width: 59px;
+                height: 68px;
+                background-color: map-get($couleur, tertiaire);
+                border-radius: 0 12px 12px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                transition: 500ms;
+                margin-right: -59px;
+                margin-left: 24px;
+                
+                div {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    background-color: white;
+                    display: flex;
+                    align-items: center;
+                    transition: 500ms;
+                    i {
+                        color: map-get($couleur, tertiaire);
+                        font-size: 12px;
+                    }
+                } 
             }
         }
     }  
@@ -333,49 +384,57 @@ header {
 }
 
 .fonction {
-    padding: 59px 20px 64px 20px;
+    padding: 59px 20px 68px 20px;
 
     h2 {
         box-sizing: border-box;
         max-width: 335px;
-        margin-bottom: 32px;
+        margin-bottom: 33px;
+        @media only screen and (min-width: $screen) {
+            display: flex;
+            justify-content: center;  
+        }
     }
-    .step {
-        margin-top: 23px;
-        max-width: 335px;
-        height: 98px;
+    .align {
         box-sizing: border-box;
-        height: 75px;
-        border-radius: 22px;
-        background-color: map-get($couleur, fondclair);
-        box-shadow: 0px 3px 10px map-get($couleur, ombre);
-        display: flex;
+        max-width: 335px;
+        margin-top: 23px;
+        padding-left: 12px; //compense le margin -12 de &__bulle
 
-        &__bulle {
-            width: 24px;
-            height: 24px;
-            border-radius: 12px;
-            background-color: map-get($couleur, primaire);
-            color: white;
+        .step {
+            box-sizing: border-box;
+            height: 75px;
+            border-radius: 22px;
+            background-color: map-get($couleur, fondclair);
+            box-shadow: 0px 3px 10px map-get($couleur, ombre);
             display: flex;
-            align-items: center;
-            margin: auto 0 auto -12px;
-        }
-        &__icone {
-            font-size: 20px;
-            color: grey;
-            position: relative;
-            width: 25px;
-            margin: auto 0 auto 21px;
-            display: flex;
-        }
-        &__titre {
-            margin: auto 0 auto 20px;
-        }
-        &:hover {
-            background: #f4edfd ;
-            .step__icone {
-                color: map-get($couleur, primaire);
+
+            &__bulle {
+                width: 24px;
+                height: 24px;
+                border-radius: 12px;
+                background-color: map-get($couleur, primaire);
+                color: white;
+                display: flex;
+                align-items: center;
+                margin: auto 0 auto -12px;
+            }
+            &__icone {
+                font-size: 20px;
+                color: grey;
+                position: relative;
+                width: 25px;
+                margin: auto 0 auto 21px;
+                display: flex;
+            }
+            &__titre {
+                margin: auto 0 auto 20px;
+            }
+            &:hover {
+                background: #f4edfd ;
+                .step__icone {
+                    color: map-get($couleur, primaire);
+                }
             }
         }
     }
@@ -394,8 +453,9 @@ header {
         h2 {
             @media only screen and (min-width: $screen) { 
                 width: 100%; 
-                margin-left: 70px;
                 margin-bottom: 15px;
+                display: flex;
+                justify-content: center; 
             }
             @media only screen and (max-width: $screen) { max-width: 335px; }
         }
