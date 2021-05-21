@@ -12,6 +12,148 @@ body {
   letter-spacing: 1px;
 }
 
+.onload {
+  background-color: #f5f5f5;
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  -webkit-animation: onload 3s;
+          animation: onload 3s;
+}
+@-webkit-keyframes onload {
+  from {
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+  }
+  to {
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+  }
+}
+@keyframes onload {
+  from {
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+  }
+  to {
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+  }
+}
+
+.spinner {
+  width: 85px;
+  height: 85px;
+  position: relative;
+  -webkit-animation: spinner 1.2s infinite ease-in-out;
+          animation: spinner 1.2s infinite ease-in-out;
+}
+@-webkit-keyframes spinner {
+  50% {
+    width: 150px;
+    height: 150px;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  50% {
+    width: 150px;
+    height: 150px;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner .roll1 {
+  top: 0;
+  left: 0;
+}
+.spinner .roll2 {
+  top: 0;
+  right: 0;
+}
+.spinner .roll3 {
+  bottom: 0;
+  left: 0;
+}
+.spinner .roll4 {
+  bottom: 0;
+  right: 0;
+}
+.spinner .roll1, .spinner .roll2, .spinner .roll3, .spinner .roll4 {
+  position: absolute;
+  -webkit-animation: roll 1.2s infinite ease-in-out;
+          animation: roll 1.2s infinite ease-in-out;
+}
+@-webkit-keyframes roll {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes roll {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.spinner .spin2 {
+  transform: rotate(90deg);
+}
+.spinner .spin3 {
+  transform: rotate(270deg);
+}
+.spinner .spin4 {
+  transform: rotate(180deg);
+}
+.spinner .spin1, .spinner .spin2, .spinner .spin3, .spinner .spin4 {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px 20px 0 20px;
+  background: #99e2d0;
+  -webkit-animation: spin 1.2s infinite ease-in-out;
+          animation: spin 1.2s infinite ease-in-out;
+}
+@-webkit-keyframes spin {
+  33% {
+    background-color: #9356dc;
+  }
+  50% {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px 32px 0 32px;
+  }
+  66% {
+    background-color: #ff79da;
+  }
+}
+@keyframes spin {
+  33% {
+    background-color: #9356dc;
+  }
+  50% {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px 32px 0 32px;
+  }
+  66% {
+    background-color: #ff79da;
+  }
+}
+
 header {
   display: flex;
   text-align: center;
@@ -28,109 +170,6 @@ header a {
 }
 header h1 {
   font-size: 25px;
-}
-
-@-webkit-keyframes onload {
-  from {
-    opacity: 1;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-  }
-  to {
-    opacity: 1;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-  }
-}
-
-@keyframes onload {
-  from {
-    opacity: 1;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-  }
-  to {
-    opacity: 1;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-  }
-}
-.onload {
-  -webkit-animation: onload 3s;
-          animation: onload 3s;
-  background-color: #f5f5f5;
-  position: absolute;
-  top: 0;
-  height: 0;
-  width: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-}
-
-@-webkit-keyframes spin {
-  to {
-    transform: rotate(1turn);
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(1turn);
-  }
-}
-.progress {
-  position: relative;
-  display: inline-block;
-  width: 5em;
-  height: 5em;
-  margin: 120px;
-  font-size: 12px;
-  text-indent: 999em;
-  overflow: hidden;
-  -webkit-animation: spin 250ms infinite steps(9);
-          animation: spin 250ms infinite steps(9);
-}
-
-.size.progress {
-  font-size: 24px;
-}
-
-.progress:before, .progress:after, .progress > div:before, .progress > div:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 2.25em;
-  width: 0.5em;
-  height: 1.5em;
-  border-radius: 0.2em;
-  background: #fca8e4;
-  box-shadow: 0 3.5em #fca8e4;
-  transform-origin: 50% 2.5em;
-}
-
-.progress:before {
-  background: #9356dc;
-}
-
-.progress:after {
-  transform: rotate(-45deg);
-  background: #a45bfd;
-}
-
-.progress > div:before {
-  transform: rotate(-90deg);
-  background: #b275fd;
-}
-
-.progress > div:after {
-  transform: rotate(-135deg);
-  background: #c191fd;
 }
 
 .entete__image {
@@ -168,6 +207,7 @@ header h1 {
 .entete__titre--like {
   float: right;
   margin-right: 26px;
+  cursor: pointer;
   font-size: 24px;
 }
 .entete__titre--like .far {
@@ -191,25 +231,6 @@ header h1 {
   opacity: 1;
 }
 
-@-webkit-keyframes anime {
-  from {
-    opacity: 0;
-    margin-top: 25px;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes anime {
-  from {
-    opacity: 0;
-    margin-top: 25px;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .menu {
   background-color: #f5f5f5;
   padding-bottom: 10px;
@@ -264,8 +285,6 @@ header h1 {
   background-color: #99e2d0;
 }
 .menu .bloc__carte {
-  -webkit-animation: 1s ease-in-out both anime;
-          animation: 1s ease-in-out both anime;
   box-sizing: border-box;
   max-width: 349px;
   height: 68px;
@@ -275,6 +294,26 @@ header h1 {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.18);
   overflow: hidden;
   padding-left: 11px;
+  -webkit-animation: 1s ease-in-out both anime;
+          animation: 1s ease-in-out both anime;
+}
+@-webkit-keyframes anime {
+  from {
+    opacity: 0;
+    margin-top: 25px;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes anime {
+  from {
+    opacity: 0;
+    margin-top: 25px;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .menu .bloc__carte:hover .bloc__carte--check {
   margin-right: 0px;
@@ -560,6 +599,7 @@ header h1 {
   float: right;
   margin-top: 197px;
   margin-right: 25px;
+  cursor: pointer;
   font-size: 24px;
 }
 .restau .flex .carte__image--like .far {

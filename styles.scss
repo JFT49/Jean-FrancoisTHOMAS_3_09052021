@@ -1,4 +1,4 @@
-//Variables
+//Variables//////////////////////////////////////////
 
 $screen: 800px;
 
@@ -11,7 +11,8 @@ $couleur: (
     ombre: rgba(0, 0, 0, 0.18)
 );
 
-//General
+//General//////////////////////////////////////////
+
 * {
     margin: 0 auto;
     padding: 0;
@@ -26,9 +27,10 @@ body {
     letter-spacing: 1px;
 }
 
-//Mixin
+//Mixin//////////////////////////////////////////////
 
 @mixin like {
+    cursor: pointer;
     font-size: 24px;           
     .far {
         color: grey;
@@ -46,7 +48,83 @@ body {
     input[type="checkbox"]:checked ~ .fas { opacity: 1; }
 }
 
-//Header
+//Spinner Onload///////////////////////////////////////
+    
+.onload {
+    background-color: map-get($couleur, fondclair);
+    position: absolute;
+    top: 0;
+    height: 0;
+    width: 0;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+    opacity: 0;
+    animation: onload 3s;
+    @keyframes onload { 
+        from { 
+            opacity: 1;
+            height: 100%;
+            width: 100%; 
+            position: fixed;
+        }
+         to { 
+            opacity: 1;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+        } 
+    } 
+ }
+
+.spinner { 
+    $freq: 1.2s;
+    width: 85px;
+    height: 85px;
+    position: relative;
+    animation:  spinner $freq infinite ease-in-out;
+    @keyframes spinner {
+        50% {
+            width: 150px;
+            height: 150px;
+        } 	
+        to { transform: rotate(360deg); } 
+    }
+        
+    .roll1 { top: 0; left: 0;}
+    .roll2 { top: 0; right: 0;} 
+    .roll3 { bottom: 0; left: 0;}
+    .roll4 { bottom: 0; right: 0;} 
+    .roll1, .roll2, .roll3, .roll4 {
+        position: absolute;
+        animation:  roll $freq infinite ease-in-out;
+        @keyframes roll {	
+            to { transform: rotate(-360deg); } 
+        }
+    } 
+
+    .spin2 { transform: rotate(90deg);} 
+    .spin3 { transform: rotate(270deg);}
+    .spin4 { transform: rotate(180deg);}
+    .spin1, .spin2, .spin3, .spin4 {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px 20px 0 20px;
+        background: map-get($couleur, tertiaire);
+        animation:  spin $freq infinite ease-in-out; 
+        @keyframes spin { 
+            33% { background-color: map-get($couleur, primaire); }
+            50% {
+                width: 64px;
+                height: 64px;
+                border-radius: 32px 32px 0 32px;
+            }	
+            66% { background-color: map-get($couleur, secondaire); }
+        }   
+    } 
+}
+
+//Header//////////////////////////////////////////////
 
 header {
     display: flex;
@@ -66,83 +144,7 @@ header {
     }    
 }
 
-//Body
-
-//Spinner//////
-    @keyframes onload { 
-        from { 
-            opacity: 1;
-            height: 100%;
-            width: 100%; 
-            position: fixed;
-        }
-        to { 
-            opacity: 1;
-            height: 100%;
-            width: 100%;
-            position: fixed;
-        } 
-    } 
-    .onload {
-        animation: onload 3s;
-        background-color: map-get($couleur, fondclair);
-        position: absolute;
-        top: 0;
-        height: 0;
-        width: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-    }
-
-    @keyframes spin { 	
-        to { 
-            transform: rotate(1turn); 
-        } 
-    }  
-    .progress { 	
-        position: relative; 	
-        display: inline-block; 	
-        width: 5em; 	
-        height: 5em; 	
-        margin: 120px; 	
-        font-size: 12px; 	
-        text-indent: 999em; 	
-        overflow: hidden; 	
-        animation: spin 250ms infinite steps(9); 
-    }  
-    .size.progress { 	
-        font-size: 24px; 
-    }  
-    .progress:before, .progress:after, .progress > div:before, .progress > div:after { 	
-        content: ''; 	
-        position: absolute; 	
-        top: 0; 	
-        left: 2.25em; // (container width - part width)/2  
-        width: .5em; 	
-        height: 1.5em; 	
-        border-radius: .2em; 	
-        background: #fca8e4; 	
-        box-shadow: 0 3.5em #fca8e4; // container height - part height 	
-        transform-origin: 50% 2.5em; // container height / 2 
-    }  
-    .progress:before { 	
-        background: #9356dc; 
-    }  
-    .progress:after { 	
-        transform: rotate(-45deg); 	
-        background: #a45bfd; 
-    }  
-    .progress > div:before { 	
-        transform: rotate(-90deg); 	
-        background: #b275fd; 
-    }  
-    .progress > div:after { 	
-        transform: rotate(-135deg); 	
-        background: #c191fd; 
-    }
-///////////////////////////////////////:
+//Body//////////////////////////////////
 
 .entete {
     &__image {
@@ -182,16 +184,6 @@ header {
     }
 }
 
-@keyframes anime { 
-    from { 
-        opacity: 0;
-        margin-top: 25px;
-    }
-    to { 
-        opacity: 1;
-    } 
-} 
-
 .menu {
     background-color: map-get($couleur, fondclair);
     padding-bottom: 10px;
@@ -228,7 +220,6 @@ header {
             }
         }
         &__carte {
-            animation:  1s  ease-in-out both anime;
             box-sizing: border-box;
             max-width: 349px;
             height: 68px;
@@ -238,6 +229,16 @@ header {
             box-shadow: 0px 3px 10px map-get($couleur, ombre); 
             overflow: hidden;  //pour cacher le &--check à l'exterieur de la div
             padding-left: 11px;
+            animation:  1s  ease-in-out both anime;
+            @keyframes anime { 
+                from { 
+                    opacity: 0;
+                    margin-top: 25px;
+                }
+                to { 
+                    opacity: 1;
+                } 
+            } 
             &:hover {
                 .bloc__carte--check {
                     margin-right: 0px;
@@ -247,8 +248,6 @@ header {
                     }
                 }
             }
-
-
             h6 {
                 margin-top: 13px;
                 display: block;
@@ -349,7 +348,6 @@ header {
         margin-bottom: 31px;
     }
 }
-
 
 .button1 {
     background: linear-gradient(map-get($couleur, secondaire),map-get($couleur, primaire)) ;
@@ -521,7 +519,7 @@ header {
     }   
 }
 
-//Footer
+//Footer////////////////////////////////////////////////////////////
 
 footer {
     background-color: map-get($couleur, fondsombre);
