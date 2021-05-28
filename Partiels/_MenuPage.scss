@@ -1,0 +1,164 @@
+.entete {
+    &__image {
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        height: 290px;
+        @media only screen and (min-width: $screen) { 
+            background-position: center;
+            height: 430px;
+        }
+        &--jpg1 { background-image: url(images/jay-wennington-N_Y88TWmGwA-unsplash.jpg) }
+        &--jpg2 { background-image: url(images/stil-u2Lp8tXIcjw-unsplash.jpg) }
+        &--jpg3 { background-image: url(images/toa-heftiba-DQKerTsQwi0-unsplash.jpg) }
+        &--jpg4 { background-image: url(images/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg) }
+        > div {
+            position: absolute;
+            bottom: 0;
+            background-color: map-get($couleur, fondclair);
+            height: 37px;
+            width: 100%;
+            border-radius: 37px 37px 0 0;
+        }
+    }
+    &__titre {
+        box-sizing: border-box;
+        background-color: map-get($couleur, fondclair);
+        
+        > h2 {
+            line-height: 25px;
+            font-size: 25px;
+            padding-left: 7px;
+            max-width: 349px;
+            height: 29px;
+            box-sizing: border-box;
+        }
+        &--like {
+            float: right;
+            margin-right: 26px;
+            @include like;
+        }
+    }
+}
+.menu {
+    background-color: map-get($couleur, fondclair);
+    padding-bottom: 10px;
+    @media only screen and (min-width: $screen) {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    .bloc {
+        :nth-child(3) { animation-delay: 0.2s; }
+        :nth-child(4) { animation-delay: 0.4s; }
+        :nth-child(5) { animation-delay: 0.6s; }
+        :nth-child(6) { animation-delay: 0.8s; }
+        padding: 46px 10px 0 10px;
+        h5 {
+            padding-left: 7px;
+            box-sizing: border-box;
+            max-width: 349px;
+            font-size: 16px;
+            @media only screen and (min-width: $screen) { width: 349px;} 
+        }
+        &__barre {
+            box-sizing: border-box;
+            max-width: 349px;
+            margin-top: 6px;
+            > p {
+                max-width: 40px;
+                height: 3px;  
+                margin-left: 7px; 
+                background-color: map-get($couleur, tertiaire);
+            }
+        }
+        &__carte {
+            box-sizing: border-box;
+            max-width: 349px;
+            height: 68px;
+            background-color: white;
+            border-radius: 12px;
+            margin-top: 14px;
+            box-shadow: 0px 3px 10px map-get($couleur, ombre); 
+            overflow: hidden;  //pour cacher le &--check à l'exterieur de la div
+            padding-left: 11px;
+            animation:  1s  ease-in-out both anime;
+            @keyframes anime { 
+                from { 
+                    opacity: 0;
+                    margin-top: 25px;
+                }
+                to { 
+                    opacity: 1;
+                } 
+            } 
+            &:hover {
+                .bloc__carte--check {
+                    margin-right: 0px;
+                    margin-left: 12px;
+                    div {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+            h6 {
+                margin-top: 13px;
+                display: block;
+                max-width: 340px;
+                font-size: 17px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            div:last-child {
+                margin-top: 5px;
+                p {
+                    font-size: 15px;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                a {
+                    float: right;
+                    font-weight: bold;
+                    font-size: 15px;
+                    margin-left: 12px;
+                }
+            }
+            &--check {
+                float: right;
+                box-sizing: border-box;
+                width: 59px;
+                height: 68px;
+                background-color: map-get($couleur, tertiaire);
+                border-radius: 0 12px 12px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 500ms;
+                margin-right: -59px;
+                margin-left: 24px;
+                div {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    background-color: white;
+                    display: flex;
+                    align-items: center;
+                    transition: 500ms;
+                    i {
+                        color: map-get($couleur, tertiaire);
+                        font-size: 12px;
+                    }
+                } 
+            }
+        }
+    }  
+}
+.commander {
+    background-color: map-get($couleur, fondclair);
+    display: flex;
+    padding: 41px 10px 72px 10px;
+}

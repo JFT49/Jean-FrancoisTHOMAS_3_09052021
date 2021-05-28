@@ -1,0 +1,46 @@
+//Variables//////////////////////////////////////////
+$screen: 800px;
+
+$couleur: (
+    primaire: #9356dc,
+    secondaire: #ff79da,
+    tertiaire: #99e2d0,
+    fondclair: #f5f5f5,
+    fondsombre: #353535,
+    ombre: rgba(0, 0, 0, 0.18)
+);
+
+//General//////////////////////////////////////////
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+    font-family: 'Shrikhand', cursive;
+    letter-spacing: 1px;
+}
+
+//Mixin//////////////////////////////////////////////
+@mixin like { 
+    cursor: pointer;
+    font-size: 24px;           
+    .far {
+        color: grey;
+        opacity: 1;
+        transition: opacity 400ms;
+    }
+    .fas {
+        color: map-get($couleur, primaire);
+        margin-right: -29.75px;
+        opacity: 0;
+        transition: opacity 1200ms;
+    }
+    input[type="checkbox"] { display: none; }
+    input[type="checkbox"]:checked ~ .far { opacity: 0; }
+    input[type="checkbox"]:checked ~ .fas { opacity: 1; }
+}

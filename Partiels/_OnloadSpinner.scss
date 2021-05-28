@@ -1,0 +1,54 @@
+.onload {
+    background-color: map-get($couleur, fondclair);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    visibility: hidden;
+    animation: onload 60s;
+    @keyframes onload { 
+        to { visibility: visible; } 
+    } 
+ }
+.spinner { 
+    $freq: 1.2s;
+    width: 85px;
+    height: 85px;
+    position: relative;
+    animation:  spinner $freq infinite ease-in-out alternate;
+    @keyframes spinner {
+        50% { width: 150px; height: 150px;} 	
+        to { transform: rotate(1turn);} 
+    }
+    .roll1, .roll2, .roll3, .roll4 {
+        position: absolute;
+        animation:  roll $freq infinite ease-in-out alternate;
+        @keyframes roll {	
+            to { transform: rotate(-1turn);} 
+        } 
+    } 
+    .roll1 { top: 0; left: 0;}
+    .roll2 { top: 0; right: 0;} 
+    .roll3 { bottom: 0; left: 0;}
+    .roll4 { bottom: 0; right: 0;}  
+
+    .spin1, .spin2, .spin3, .spin4 {
+        width: 40px;
+        height: 40px;
+        background: map-get($couleur, tertiaire);
+        animation:  spin $freq infinite ease-in-out;
+        @keyframes spin { 
+            33% { background-color: map-get($couleur, primaire);}
+            50% { transform: scale(2);}	
+            66% { background-color: map-get($couleur, secondaire);}
+        }     
+    }
+    .spin1 { border-radius: 20px 20px 0 20px; } 
+    .spin2 { border-radius: 20px 20px 20px 0; } 
+    .spin3 { border-radius: 20px 0 20px 20px; }
+    .spin4 { border-radius: 0 20px 20px 20px; }
+}
