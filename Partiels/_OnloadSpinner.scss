@@ -9,7 +9,7 @@
     align-items: center;
     position: fixed;
     visibility: hidden;
-    animation: onload 5s;
+    animation: onload 3s;
     @keyframes onload { 
         to { visibility: visible; } 
     } 
