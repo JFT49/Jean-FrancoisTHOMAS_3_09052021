@@ -9,11 +9,7 @@
     align-items: center;
     position: fixed;
     visibility: hidden;
-<<<<<<< HEAD
     animation: onload 3s;
-=======
-    animation: onload 3s;
->>>>>>> 43c99dd9f4d3c9bc0aec299c084e36e5a7f6bccb
     @keyframes onload { 
         to { visibility: visible; } 
     } 
