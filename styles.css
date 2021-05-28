@@ -23,8 +23,13 @@ body {
   align-items: center;
   position: fixed;
   visibility: hidden;
+<<<<<<< HEAD
   -webkit-animation: onload 3s;
           animation: onload 3s;
+=======
+  -webkit-animation: onload 60s;
+          animation: onload 60s;
+>>>>>>> 43c99dd9f4d3c9bc0aec299c084e36e5a7f6bccb
 }
 @-webkit-keyframes onload {
   to {
